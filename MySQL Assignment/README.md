@@ -1,12 +1,13 @@
 The Problem:
+
 Three tables have been designed to manage orders to an online book store. Three tables will 
 be created as follows:
 
-  OrderList(orderid:INT (pk, auto increment), bookid:INT, orderername:VARCHAR(50), ordereraddress:VARCHAR(50),  quantity:INT, fulfilled:INT)
+  1. OrderList(orderid:INT (pk, auto increment), bookid:INT, orderername:VARCHAR(50), ordereraddress:VARCHAR(50),  quantity:INT, fulfilled:INT)
   
-  StockList(bookid:INT (pk, auto increment), booktitle:VARCHAR(50), author:VARCHAR(50), quantityinstock:INT)
+  2. StockList(bookid:INT (pk, auto increment), booktitle:VARCHAR(50), author:VARCHAR(50), quantityinstock:INT)
   
-  BackOrderList(backorderid:INT (pk, autoincrement), orderid:INT, quantity:INT)
+  3. BackOrderList(backorderid:INT (pk, autoincrement), orderid:INT, quantity:INT)
 
 
 All incoming orders are recorded in OrderList. The orderid is auto incremented. The bookid, ordername, orderaddress and quantity as passed from a Python Script. The script collects these details from a user (command line)  and uses the pymysql library to connect and insert 
