@@ -1,1 +1,24 @@
-
+import pymysql 
+def mysqlconnect():
+    
+    
+    connection = pymysql.connect(host='cs1.ucc.ie',user='jhc2', password ="auboh",db='cs2208_jhc2')
+    with connection:
+        with connection.cursor() as cursor:
+            
+            #List of Books that the user can choose from  
+            print("Books In Stock\n")
+            print("Book ID","Book Name",sep = "    ")  
+            print("-"*50)
+            print("1","1984","\n2","The Great Gatsby","\n3","To Kill A Mockingbird","\n4","Little Women","\n5","Pride and Prejudice\n", sep = "          ")
+                    
+                    
+            orderid = int(input("Enter the id of one of your order above:"))
+            bookid= int(input("Enter the id of one of the books above:"))
+            ordername1 = str(input("Enter the name of the book:"))
+            orderaddress = str(input("Please enter your address:"))
+            quantity = int(input("Enter the amount of copies:"))
+            sql ="INSERT INTO OrderList (orderid,bookid,ordername,orderaddress,quantity) VALUES (%s,%s,%s,%s,%s)"             
+            cursor.execute(sql,(orderid,bookid,ordername1,orderaddress,quantity))
+            connection.commit()
+mysqlconnect()
